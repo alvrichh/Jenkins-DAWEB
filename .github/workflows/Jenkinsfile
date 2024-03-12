@@ -1,9 +1,18 @@
 pipeline {
     agent any
+    tools {
+        maven 'maven'
+        jdk 'jdk11'
+    }
     stages {
-        stage('test casc env') {
+        stage('env') {
             steps {
-                echo "JCasC env.hello: ${env.hello}"
+                sh 'mvn --version'
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn clean install -B --no-transfer-progress'
             }
         }
     }
