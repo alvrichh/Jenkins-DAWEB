@@ -1,7 +1,7 @@
 name: Java CI
 on: [push]
 jobs:
-  jenkins-static-image-pipeline:
+  job-name:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
